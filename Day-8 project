@@ -1,0 +1,35 @@
+# encryption decryption
+char = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+def encryption(text, num):
+    new_word = ''
+    for i in text:
+        position = char.index(i)
+        position += num
+        if position > 25:
+            a = position - 25
+            position = a - 1
+        new_word += char[position]
+    print(new_word)
+
+def decryption(text, num):
+    new_word = ''
+    for i in text:
+        position = char.index(i)
+        position -= num
+        new_word += char[position]
+    print(new_word)
+
+def get_input():
+    a = input("Enter text:")
+    b = int(input("Enter shifting amount: "))
+    return a, b
+
+
+a = input("Type 'encode' for encryption or Type 'decode' for decryption.")
+text , num = '', 0
+if a == 'encode':
+    text , num = get_input()
+    encryption(text, num)
+if a == 'decode':
+    text , num = get_input()
+    decryption(text, num)
