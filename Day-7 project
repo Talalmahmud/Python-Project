@@ -1,0 +1,36 @@
+# Hangman Project
+
+import random
+
+
+word_list = ["ardvark", "baboon", "camel"]
+
+choice_word = random.choice(word_list)
+print(f"The choosen word is :{choice_word}")
+
+
+
+display = []
+
+for i in range(len(choice_word)):
+    display.append('_')
+
+
+desh_count = display.count('_')
+n = 0
+end_of_game = False
+while not end_of_game:
+    guess = input("Gauess a letter: ")
+
+    for i in range(len(choice_word)):
+        if (choice_word[i] == guess):
+            display[i] = choice_word[i]
+    if n == desh_count:
+        end_of_game = True
+    print(display)
+    n += 1
+
+if '_' not in display:
+    print("You win.")
+else:
+    print("You lose.")
