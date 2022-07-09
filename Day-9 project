@@ -1,0 +1,22 @@
+# bidding program
+
+bids = {}
+finished_bids = False
+
+while not finished_bids:
+    name = input("What is your name? ")
+    price = input("What is your bide? ")
+    bids[name] = price
+    add_bidders = input('Are there any other bidders? Type "yes" or "no". ')
+
+    if add_bidders == 'no':
+        finished_bids = True
+
+for better in bids:
+    max = 0
+    if int(bids[better]) > max:
+        max = int(bids[better])
+        winner = better
+
+print(f" {winner} is winner. He bids {max}")
+
