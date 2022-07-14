@@ -19,6 +19,15 @@ guess_state = []
 while len(guess_state) < 50:
     answer_state = (t.textinput(f"{len(guess_state)}/50 corrects", "Which state is next?")).title()
 
+    if answer_state == 'Exit':
+        miss_state = []
+        for state in all_state:
+            if state not in guess_state:
+                miss_state.append(state)
+        m_state = pandas.DataFrame(miss_state)
+        m_state.to_csv("missing_state.csv")
+        break
+
     if answer_state in all_state:
         guess_state.append(answer_state)
         state = t.Turtle()
