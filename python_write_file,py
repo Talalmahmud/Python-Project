@@ -1,0 +1,3 @@
+with open("newfile.txt","w") as file:
+    contents = file.write("Hi! You add some data to this file,")
+    
